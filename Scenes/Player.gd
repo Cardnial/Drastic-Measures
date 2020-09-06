@@ -6,6 +6,7 @@ export var acceleration = 5
 export var gravity = 1
 export var jump_power = 30
 export var mouse_sensitivity = 0.3
+export var camera_fov = 90
 
 # Refereces to the Head and Camera
 onready var head = $Head
@@ -24,25 +25,29 @@ func _ready():
 
 # Move the Camera Around
 func _input(event):
-	if event is InputEventMouseMotion:
-		head.rotate_y(deg2rad(-event.relative.x * mouse_sensitivity))
-##		add code below for a haha haha funnie
-##		camera.rotate_x(deg2rad(-event.relative.y * mouse_sensitivity))
-##		replace camera with head to add a noclip like mode
+	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		if event is InputEventMouseMotion:
+			head.rotate_y(deg2rad(-event.relative.x * mouse_sensitivity))
+##			add code below for a haha haha funnie
+##			camera.rotate_x(deg2rad(-event.relative.y * mouse_sensitivity))
+##			replace camera with head to add a noclip like mode
 		
 		# This Moves the Camera Up Down
-		var x_delta = event.relative.y * mouse_sensitivity
-		# This Makes it So You Have a Spine
-		if camera_x_rotation + x_delta > -90 and camera_x_rotation + x_delta < 90:
-			camera.rotate_x(deg2rad(-x_delta))
-			camera_x_rotation += x_delta
+		
+		
+			var x_delta = event.relative.y * mouse_sensitivity
+			# This Makes it So You Have a Spine
+			if camera_x_rotation + x_delta > -90 and camera_x_rotation + x_delta < 90:
+				camera.rotate_x(deg2rad(-x_delta))
+				camera_x_rotation += x_delta
 		
 # Press Esc to Toggle Cursor Lock
-func _process(delta):
-	if Input.is_action_just_pressed("ui_cancel") and Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	elif Input.is_action_just_pressed("ui_cancel") and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+#func _process(delta):
+#	if Input.is_action_just_pressed("ui_cancel") and Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
+#		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+#	elif Input.is_action_just_pressed("ui_cancel") and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+#		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+# feature moved to Debug Menu
 
 # WASD	
 func _physics_process(delta):
