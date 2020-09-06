@@ -25,6 +25,8 @@ spot_angle = 60.0
 [node name="Camera" type="Camera" parent="Head"]
 environment = ExtResource( 2 )
 
+[node name="RayCast" type="RayCast" parent="Head/Camera"]
+
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
 shape = SubResource( 2 )
@@ -33,3 +35,5 @@ shape = SubResource( 2 )
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
 mesh = SubResource( 3 )
 material/0 = null
+
+[node name="Weapon" type="Node" parent="."]
