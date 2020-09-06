@@ -16,8 +16,10 @@ _global_script_class_icons={
 [application]
 
 config/name="Drastic Measures"
+config/description="pain pain pain pain pain pain pain pain pain pain pain pain "
 run/main_scene="res://Scenes/World.tscn"
 config/icon="res://icon.png"
+config/windows_native_icon="res://icon.ico"
 
 [input]
 
