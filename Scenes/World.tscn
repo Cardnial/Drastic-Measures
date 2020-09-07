@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/images/stanley-tape-measures-33-716y-64_1000.jpg" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://textures/tiles/Tiles036_2K_Normal.jpg" type="Texture" id=5]
 [ext_resource path="res://playerconfig.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/DebugMenu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/HUD.gd" type="Script" id=8]
 
 [sub_resource type="SpatialMaterial" id=5]
 roughness_texture = ExtResource( 4 )
@@ -31,7 +32,7 @@ data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1
 [node name="DebugMenu" parent="." instance=ExtResource( 7 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -0.00807571, -0.151728, 0.0595093 )
+transform = Transform( 1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -0.00807571, 31.2521, 0.0595093 )
 
 [node name="Ground" type="MeshInstance" parent="."]
 transform = Transform( 10, 0, 0, 0, 0.5, 0, 0, 0, 10, 0, -2.80841, 0 )
@@ -94,15 +95,17 @@ shape = SubResource( 4 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 20, -20 )
+light_energy = 0.8
 
-[node name="Controls" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="HUD" type="Control" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Controls"]
+[node name="Controls" type="Label" parent="HUD"]
 margin_right = 40.0
 margin_bottom = 14.0
 text = "Controls:
@@ -110,6 +113,18 @@ WASD - Move
 Mouse - Look
 Space - Jump
 Esc - Debug Menu / Pause"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="Label" parent="HUD"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -14.0
+margin_right = 74.0
+rect_scale = Vector2( 2.24, 2.24 )
+rect_pivot_offset = Vector2( 0, 14 )
+text = "Health: 100"
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -5,6 +5,8 @@ extends KinematicBody
 # Refereces to the Head and Camera
 onready var head = $Head
 onready var camera = $Head/Camera
+onready var ff3k = $fallfinder3000
+
 onready var playerconfig = get_node('../playerconfig')
 
 onready var jumpscout = 0
@@ -52,6 +54,9 @@ func _physics_process(delta):
 	
 	var head_basis = head.get_global_transform().basis
 	
+	if ff3k.is_colliding() == true and velocity.y < -9.99:
+		playerconfig.health -= 1
+	
 	if is_on_floor():
 		jumpscout = 0
 	
@@ -71,7 +76,7 @@ func _physics_process(delta):
 	
 	velocity = velocity.linear_interpolate(direction * playerconfig.speed, playerconfig.acceleration * delta)
 	velocity.y -= playerconfig.gravity
-	print(jumpscout)
+	
 	
 	if Input.is_action_just_pressed("jump") and jumpscout < 2:
 		velocity.y += playerconfig.jump_power

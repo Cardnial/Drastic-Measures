@@ -14,6 +14,8 @@ onready var ALab = $Panel/Acceleration/Accelab
 onready var JLab = $Panel/Jump/Jumplab
 onready var MLab = $Panel/Sensitivity/Senslab
 
+onready var exit = $Panel/Exit
+
 func _ready():
 	hide()
 
@@ -24,6 +26,9 @@ func _process(delta):
 	elif Input.is_action_just_pressed("ui_cancel") and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		show()
+	
+	if exit.is_pressed() == true:
+		get_tree().quit()
 		
 	playerconfig.gravity = GSlide.value
 	GLab.set_text(str(playerconfig.gravity))
@@ -43,10 +48,4 @@ func _process(delta):
 #func _process(delta):
 #	print(Player.speed)
 
-func _on_Button_pressed():
-	get_tree().quit()
-
-
-
-	
 

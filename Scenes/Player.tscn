@@ -19,6 +19,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 
 [node name="SpotLight" type="SpotLight" parent="Head"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -0.42945 )
+light_energy = 0.1
 spot_range = 10.0
 spot_angle = 60.0
 
@@ -37,3 +38,7 @@ mesh = SubResource( 3 )
 material/0 = null
 
 [node name="Weapon" type="Node" parent="."]
+
+[node name="fallfinder3000" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( 0, -3, 0 )
