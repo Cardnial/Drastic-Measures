@@ -5,9 +5,10 @@ extends KinematicBody
 # Refereces to the Head and Camera
 onready var head = $Head
 onready var camera = $Head/Camera
-onready var playerconfig = get_node(playerconfig)
+onready var playerconfig = get_node('../playerconfig')
 
-onready var speed = playerconfig.speed
+onready var jumpscout = 0
+
 # Witchcraft
 var velocity = Vector3()
 
@@ -47,7 +48,12 @@ func _input(event):
 
 # WASD	
 func _physics_process(delta):
+	var playerconfig = get_node('../playerconfig')
+	
 	var head_basis = head.get_global_transform().basis
+	
+	if is_on_floor():
+		jumpscout = 0
 	
 	var direction = Vector3()
 	if Input.is_action_pressed("move_forward"):
@@ -63,10 +69,15 @@ func _physics_process(delta):
 	# This has something to do with movement i swear
 	direction = direction.normalized()
 	
-	print(playerconfig.speed)
 	velocity = velocity.linear_interpolate(direction * playerconfig.speed, playerconfig.acceleration * delta)
 	velocity.y -= playerconfig.gravity
+	print(jumpscout)
 	
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and jumpscout < 2:
 		velocity.y += playerconfig.jump_power
+		jumpscout += 1
+		
+	
 	velocity = move_and_slide(velocity, Vector3.UP)
+	
+	

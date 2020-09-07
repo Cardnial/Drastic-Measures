@@ -23,7 +23,7 @@ config/windows_native_icon="res://icon.ico"
 
 [autoload]
 
-Playerconfig="*res://playerconfig.gd"
+playerconfig="*res://playerconfig.gd"
 
 [input]
 
