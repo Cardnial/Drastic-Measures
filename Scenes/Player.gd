@@ -54,8 +54,8 @@ func _physics_process(delta):
 	
 	var head_basis = head.get_global_transform().basis
 	
-	if ff3k.is_colliding() == true and velocity.y < -9.99:
-		playerconfig.health -= 1
+	#if ff3k.is_colliding() == true and velocity.y < -9.99:
+	#	playerconfig.health -= 1
 	
 	if is_on_floor():
 		jumpscout = 0
