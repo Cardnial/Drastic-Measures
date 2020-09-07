@@ -10,5 +10,10 @@ func _process(delta):
 	elif Input.is_action_just_pressed("ui_cancel") and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		show()
+		
 #func _process(delta):
 #	print(Player.speed)
+
+
+func _on_Button_pressed():
+	get_tree().quit()

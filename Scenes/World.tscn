@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/images/dingus.png" type="Texture" id=3]
 [ext_resource path="res://textures/tiles/Tiles036_2K_Roughness.jpg" type="Texture" id=4]
 [ext_resource path="res://textures/tiles/Tiles036_2K_Normal.jpg" type="Texture" id=5]
-[ext_resource path="res://Scenes/DebugMenu.gd" type="Script" id=6]
+[ext_resource path="res://playerconfig.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/DebugMenu.tscn" type="PackedScene" id=7]
 
 [sub_resource type="SpatialMaterial" id=5]
@@ -29,11 +29,9 @@ data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1
 [node name="World" type="Spatial"]
 
 [node name="DebugMenu" parent="." instance=ExtResource( 7 )]
-script = ExtResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -0.00807571, -0.151728, 0.0595093 )
-mouse_sensitivity = 0.5
 
 [node name="Ground" type="MeshInstance" parent="."]
 transform = Transform( 10, 0, 0, 0, 0.5, 0, 0, 0, 10, 0, -2.80841, 0 )
@@ -112,3 +110,9 @@ WASD - Move
 Mouse - Look
 Space - Jump
 Esc - Debug Menu / Pause"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="playerconfig" type="Node" parent="."]
+script = ExtResource( 6 )

@@ -21,6 +21,10 @@ run/main_scene="res://Scenes/World.tscn"
 config/icon="res://icon.png"
 config/windows_native_icon="res://icon.ico"
 
+[autoload]
+
+Playerconfig="*res://playerconfig.gd"
+
 [input]
 
 move_forward={
