@@ -1,0 +1,422 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scenes/Ground.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Wall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/DebugMenu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://playerconfig.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/StaticCube.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/Dummy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/images/dingus.png" type="Texture" id=9]
+[ext_resource path="res://assets/images/stanley-tape-measures-33-716y-64_1000.jpg" type="Texture" id=10]
+
+[node name="Debug World" type="Spatial"]
+
+[node name="Room 1" type="Spatial" parent="."]
+
+[node name="Ground" parent="Room 1" instance=ExtResource( 1 )]
+transform = Transform( 10, 0, 0, 0, 0.5, 0, 0, 0, 10, 0, -5, 0 )
+
+[node name="Ground2" parent="Room 1" instance=ExtResource( 1 )]
+transform = Transform( 10, 0, 0, 0, 0.5, 0, 0, 0, 10, 0, 0.902144, 0 )
+
+[node name="Wall" parent="Room 1" instance=ExtResource( 3 )]
+transform = Transform( 10, 0, 0, 0, -2.18557e-08, -2.5, 0, 0.5, -1.09278e-07, 0, -2, -10 )
+
+[node name="Wall2" parent="Room 1" instance=ExtResource( 3 )]
+transform = Transform( 10, 0, 0, 0, -2.18557e-08, -2.5, 0, 0.5, -1.09278e-07, 0, -2, 10 )
+
+[node name="Wall4" parent="Room 1" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, 10, -2, 6 )
+
+[node name="Wall5" parent="Room 1" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, 10, -2, -6 )
+
+[node name="StaticCube" parent="Room 1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.42995, -3.46932, -8.41449 )
+
+[node name="OmniLight" type="OmniLight" parent="Room 1/StaticCube"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.23026, 0 )
+
+[node name="Dummy" parent="Room 1" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.2517, -4.08257, -6.52553 )
+
+[node name="Sprite3D" type="Sprite3D" parent="Room 1"]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -4.70199, -2.00878, -9.49863 )
+texture = ExtResource( 10 )
+
+[node name="Sprite3D2" type="Sprite3D" parent="Room 1"]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.908554, -2.00878, -9.49863 )
+texture = ExtResource( 9 )
+
+[node name="Room 2" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.8827, 0, 0 )
+
+[node name="Ground" parent="Room 2" instance=ExtResource( 1 )]
+transform = Transform( 10, 0, 0, 0, 0.5, 0, 0, 0, 10, 0, -5, 0 )
+
+[node name="Wall" parent="Room 2" instance=ExtResource( 3 )]
+transform = Transform( 10, 0, 0, 0, -2.18557e-08, -2.5, 0, 0.5, -1.09278e-07, 0, -2, -10 )
+
+[node name="Wall2" parent="Room 2" instance=ExtResource( 3 )]
+transform = Transform( 10, 0, 0, 0, -2.18557e-08, -2.5, 0, 0.5, -1.09278e-07, 0, -2, 10 )
+
+[node name="Wall4" parent="Room 2" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, -10, -2, 6 )
+
+[node name="Wall7" parent="Room 2" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, 10, -2, 6 )
+
+[node name="Wall5" parent="Room 2" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, 10, -2, -6 )
+
+[node name="Wall6" parent="Room 2" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, -10, -2, -6 )
+
+[node name="StaticCube" parent="Room 2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11598, -3.46932, -8.41449 )
+
+[node name="Dummy" parent="Room 2" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.11423, -4.08257, 2.72784 )
+
+[node name="Room 3" type="Spatial" parent="."]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 40.0104, 0, 0 )
+
+[node name="Ground" parent="Room 3" instance=ExtResource( 1 )]
+transform = Transform( 10, 0, 0, 0, 0.5, 0, 0, 0, 10, 0, -5, 0 )
+
+[node name="Wall2" parent="Room 3" instance=ExtResource( 3 )]
+transform = Transform( 10, 0, 0, 0, -2.18557e-08, -2.5, 0, 0.5, -1.09278e-07, 0, -2, 10 )
+
+[node name="Wall4" parent="Room 3" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, -10, -2, 6 )
+
+[node name="Wall7" parent="Room 3" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, 10, -2, 6 )
+
+[node name="Wall5" parent="Room 3" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, 10, -2, -6 )
+
+[node name="Wall6" parent="Room 3" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, -10, -2, -6 )
+
+[node name="StaticCube" parent="Room 3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11598, -3.46932, -8.41449 )
+
+[node name="Dummy" parent="Room 3" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.11423, -4.08257, 2.72784 )
+
+[node name="Room 4" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20.0589 )
+
+[node name="Ground" parent="Room 4" instance=ExtResource( 1 )]
+transform = Transform( 10, 0, 0, 0, 0.5, 0, 0, 0, 10, 0, -5, 0 )
+
+[node name="Wall" parent="Room 4" instance=ExtResource( 3 )]
+transform = Transform( 10, 0, 0, 0, -2.18557e-08, -2.5, 0, 0.5, -1.09278e-07, 0, -2, -10 )
+
+[node name="Wall2" parent="Room 4" instance=ExtResource( 3 )]
+transform = Transform( 10, 0, 0, 0, -2.18557e-08, -2.5, 0, 0.5, -1.09278e-07, 0, -2, 10 )
+
+[node name="Wall3" parent="Room 4" instance=ExtResource( 3 )]
+transform = Transform( -1.62921e-06, -0.5, 0, -1.62921e-06, 1.32716e-14, -2.5, 10, -8.14603e-08, -4.07302e-07, -10, -2, 0 )
+
+[node name="Wall4" parent="Room 4" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, 10, -2, 6 )
+
+[node name="Wall5" parent="Room 4" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, 10, -2, -6 )
+
+[node name="StaticCube" parent="Room 4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11598, -3.46932, -8.41449 )
+
+[node name="Dummy" parent="Room 4" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.11423, -4.08257, 2.72784 )
+
+[node name="Room 5" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.8827, 0, -20.0589 )
+
+[node name="Ground" parent="Room 5" instance=ExtResource( 1 )]
+transform = Transform( 10, 0, 0, 0, 0.5, 0, 0, 0, 10, 0, -5, 0 )
+
+[node name="Wall" parent="Room 5" instance=ExtResource( 3 )]
+transform = Transform( 10, 0, 0, 0, -2.18557e-08, -2.5, 0, 0.5, -1.09278e-07, 0, -2, -10 )
+
+[node name="Wall2" parent="Room 5" instance=ExtResource( 3 )]
+transform = Transform( 10, 0, 0, 0, -2.18557e-08, -2.5, 0, 0.5, -1.09278e-07, 0, -2, 10 )
+
+[node name="Wall4" parent="Room 5" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, -10, -2, 6 )
+
+[node name="Wall7" parent="Room 5" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, 10, -2, 6 )
+
+[node name="Wall5" parent="Room 5" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, 10, -2, -6 )
+
+[node name="Wall6" parent="Room 5" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, -10, -2, -6 )
+
+[node name="StaticCube" parent="Room 5" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11598, -3.46932, -8.41449 )
+
+[node name="Dummy" parent="Room 5" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.11423, -4.08257, 2.72784 )
+
+[node name="Room 14" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9981, 0, -39.7961 )
+
+[node name="Ground" parent="Room 14" instance=ExtResource( 1 )]
+transform = Transform( 10, 0, 0, 0, 0.5, 0, 0, 0, 10, 0, -5, 0 )
+
+[node name="Wall" parent="Room 14" instance=ExtResource( 3 )]
+transform = Transform( 10, 0, 0, 0, -2.18557e-08, -2.5, 0, 0.5, -1.09278e-07, 0, -2, -10 )
+
+[node name="Wall2" parent="Room 14" instance=ExtResource( 3 )]
+transform = Transform( 10, 0, 0, 0, -2.18557e-08, -2.5, 0, 0.5, -1.09278e-07, 0, -2, 10 )
+
+[node name="Wall4" parent="Room 14" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, -10, -2, 6 )
+
+[node name="Wall7" parent="Room 14" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, 10, -2, 6 )
+
+[node name="Wall5" parent="Room 14" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, 10, -2, -6 )
+
+[node name="Wall6" parent="Room 14" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, -10, -2, -6 )
+
+[node name="StaticCube" parent="Room 14" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11598, -3.46932, -8.41449 )
+
+[node name="Dummy" parent="Room 14" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.11423, -4.08257, 2.72784 )
+
+[node name="Room 6" type="Spatial" parent="."]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 40.0104, 0, -20.0589 )
+
+[node name="Ground" parent="Room 6" instance=ExtResource( 1 )]
+transform = Transform( 10, 0, 0, 0, 0.5, 0, 0, 0, 10, 0, -5, 0 )
+
+[node name="Wall2" parent="Room 6" instance=ExtResource( 3 )]
+transform = Transform( 10, 0, 0, 0, -2.18557e-08, -2.5, 0, 0.5, -1.09278e-07, 0, -2, 10 )
+
+[node name="Wall4" parent="Room 6" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, -10, -2, 6 )
+
+[node name="Wall7" parent="Room 6" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, 10, -2, 6 )
+
+[node name="Wall5" parent="Room 6" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, 10, -2, -6 )
+
+[node name="Wall6" parent="Room 6" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, -10, -2, -6 )
+
+[node name="StaticCube" parent="Room 6" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11598, -3.46932, -8.41449 )
+
+[node name="Dummy" parent="Room 6" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.11423, -4.08257, 2.72784 )
+
+[node name="Room 13" type="Spatial" parent="."]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 39.9911, 0, -39.6535 )
+
+[node name="Ground" parent="Room 13" instance=ExtResource( 1 )]
+transform = Transform( 10, 0, 0, 0, 0.5, 0, 0, 0, 10, 0, -5, 0 )
+
+[node name="Wall2" parent="Room 13" instance=ExtResource( 3 )]
+transform = Transform( 10, 0, 0, 0, -2.18557e-08, -2.5, 0, 0.5, -1.09278e-07, 0, -2, 10 )
+
+[node name="Wall4" parent="Room 13" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, -10, -2, 6 )
+
+[node name="Wall7" parent="Room 13" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, 10, -2, 6 )
+
+[node name="Wall5" parent="Room 13" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, 10, -2, -6 )
+
+[node name="Wall6" parent="Room 13" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, -10, -2, -6 )
+
+[node name="StaticCube" parent="Room 13" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11598, -3.46932, -8.41449 )
+
+[node name="Dummy" parent="Room 13" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.11423, -4.08257, 2.72784 )
+
+[node name="Room 7" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20.0046 )
+
+[node name="Ground" parent="Room 7" instance=ExtResource( 1 )]
+transform = Transform( 10, 0, 0, 0, 0.5, 0, 0, 0, 10, 0, -5, 0 )
+
+[node name="Wall" parent="Room 7" instance=ExtResource( 3 )]
+transform = Transform( 10, 0, 0, 0, -2.18557e-08, -2.5, 0, 0.5, -1.09278e-07, 0, -2, -10 )
+
+[node name="Wall2" parent="Room 7" instance=ExtResource( 3 )]
+transform = Transform( 10, 0, 0, 0, -2.18557e-08, -2.5, 0, 0.5, -1.09278e-07, 0, -2, 10 )
+
+[node name="Wall3" parent="Room 7" instance=ExtResource( 3 )]
+transform = Transform( -1.62921e-06, -0.5, 0, -1.62921e-06, 1.32716e-14, -2.5, 10, -8.14603e-08, -4.07302e-07, -10, -2, 0 )
+
+[node name="Wall4" parent="Room 7" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, 10, -2, 6 )
+
+[node name="Wall5" parent="Room 7" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, 10, -2, -6 )
+
+[node name="StaticCube" parent="Room 7" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11598, -3.46932, -8.41449 )
+
+[node name="Dummy" parent="Room 7" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.11423, -4.08257, 2.72784 )
+
+[node name="Room 8" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.8827, 0, 20.0046 )
+
+[node name="Ground" parent="Room 8" instance=ExtResource( 1 )]
+transform = Transform( 10, 0, 0, 0, 0.5, 0, 0, 0, 10, 0, -5, 0 )
+
+[node name="Wall" parent="Room 8" instance=ExtResource( 3 )]
+transform = Transform( 10, 0, 0, 0, -2.18557e-08, -2.5, 0, 0.5, -1.09278e-07, 0, -2, -10 )
+
+[node name="Wall2" parent="Room 8" instance=ExtResource( 3 )]
+transform = Transform( 10, 0, 0, 0, -2.18557e-08, -2.5, 0, 0.5, -1.09278e-07, 0, -2, 10 )
+
+[node name="Wall4" parent="Room 8" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, -10, -2, 6 )
+
+[node name="Wall7" parent="Room 8" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, 10, -2, 6 )
+
+[node name="Wall5" parent="Room 8" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, 10, -2, -6 )
+
+[node name="Wall6" parent="Room 8" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, -10, -2, -6 )
+
+[node name="StaticCube" parent="Room 8" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11598, -3.46932, -8.41449 )
+
+[node name="Dummy" parent="Room 8" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.11423, -4.08257, 2.72784 )
+
+[node name="Room 9" type="Spatial" parent="."]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 40.0104, 0, 20.0046 )
+
+[node name="Ground" parent="Room 9" instance=ExtResource( 1 )]
+transform = Transform( 10, 0, 0, 0, 0.5, 0, 0, 0, 10, 0, -5, 0 )
+
+[node name="Wall2" parent="Room 9" instance=ExtResource( 3 )]
+transform = Transform( 10, 0, 0, 0, -2.18557e-08, -2.5, 0, 0.5, -1.09278e-07, 0, -2, 10 )
+
+[node name="Wall4" parent="Room 9" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, -10, -2, 6 )
+
+[node name="Wall7" parent="Room 9" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, 10, -2, 6 )
+
+[node name="Wall5" parent="Room 9" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, 10, -2, -6 )
+
+[node name="Wall6" parent="Room 9" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, -10, -2, -6 )
+
+[node name="StaticCube" parent="Room 9" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11598, -3.46932, -8.41449 )
+
+[node name="Dummy" parent="Room 9" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.11423, -4.08257, 2.72784 )
+
+[node name="Room 10" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.1201, 0, -0.114073 )
+
+[node name="Ground" parent="Room 10" instance=ExtResource( 1 )]
+transform = Transform( 10, 0, 0, 0, 0.5, 0, 0, 0, 10, 0, -5, 0 )
+
+[node name="Wall" parent="Room 10" instance=ExtResource( 3 )]
+transform = Transform( 10, 0, 0, 0, -2.18557e-08, -2.5, 0, 0.5, -1.09278e-07, 0, -2, -10 )
+
+[node name="Wall2" parent="Room 10" instance=ExtResource( 3 )]
+transform = Transform( 10, 0, 0, 0, -2.18557e-08, -2.5, 0, 0.5, -1.09278e-07, 0, -2, 10 )
+
+[node name="Wall3" parent="Room 10" instance=ExtResource( 3 )]
+transform = Transform( -1.62921e-06, -0.5, 0, -1.62921e-06, 1.32716e-14, -2.5, 10, -8.14603e-08, -4.07302e-07, -10, -2, 0 )
+
+[node name="Wall4" parent="Room 10" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, 10, -2, 6 )
+
+[node name="Wall5" parent="Room 10" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, 10, -2, -6 )
+
+[node name="StaticCube" parent="Room 10" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11598, -3.46932, -8.41449 )
+
+[node name="Dummy" parent="Room 10" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.11423, -4.08257, 2.72784 )
+
+[node name="Room 11" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.2374, 0, -0.114073 )
+
+[node name="Ground" parent="Room 11" instance=ExtResource( 1 )]
+transform = Transform( 10, 0, 0, 0, 0.5, 0, 0, 0, 10, 0, -5, 0 )
+
+[node name="Wall" parent="Room 11" instance=ExtResource( 3 )]
+transform = Transform( 10, 0, 0, 0, -2.18557e-08, -2.5, 0, 0.5, -1.09278e-07, 0, -2, -10 )
+
+[node name="Wall2" parent="Room 11" instance=ExtResource( 3 )]
+transform = Transform( 10, 0, 0, 0, -2.18557e-08, -2.5, 0, 0.5, -1.09278e-07, 0, -2, 10 )
+
+[node name="Wall4" parent="Room 11" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, -10, -2, 6 )
+
+[node name="Wall7" parent="Room 11" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, 10, -2, 6 )
+
+[node name="Wall5" parent="Room 11" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, 10, -2, -6 )
+
+[node name="Wall6" parent="Room 11" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, -10, -2, -6 )
+
+[node name="StaticCube" parent="Room 11" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11598, -3.46932, -8.41449 )
+
+[node name="Dummy" parent="Room 11" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.11423, -4.08257, 2.72784 )
+
+[node name="Room 12" type="Spatial" parent="."]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -0.109772, 0, -0.114073 )
+
+[node name="Wall4" parent="Room 12" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, -10, -2, 6 )
+
+[node name="Wall7" parent="Room 12" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, 10, -2, 6 )
+
+[node name="Wall5" parent="Room 12" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, 10, -2, -6 )
+
+[node name="Wall6" parent="Room 12" instance=ExtResource( 3 )]
+transform = Transform( -6.51683e-07, -0.5, 1.09278e-07, 0, -2.18557e-08, -2.5, 4, -8.14603e-08, 1.78037e-14, -10, -2, -6 )
+
+[node name="StaticCube" parent="Room 12" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11598, -3.46932, -8.41449 )
+
+[node name="Dummy" parent="Room 12" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 6.11423, -4.08257, -15.0152 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.710284, 0, -0.703916, 0, 1, 0, 0.703916, 0, 0.710284, 0.0270848, -2.17969, 0.000637054 )
+
+[node name="DebugMenu" parent="." instance=ExtResource( 5 )]
+
+[node name="HUD" parent="." instance=ExtResource( 2 )]
+margin_right = 333.0
+
+[node name="playerconfig" type="Node" parent="."]
+script = ExtResource( 6 )

@@ -15,20 +15,26 @@ onready var JLab = $Panel/Jump/Jumplab
 onready var MLab = $Panel/Sensitivity/Senslab
 
 onready var exit = $Panel/Exit
+onready var reset = $Panel/Reset
+onready var close = $Panel/Close
 
 func _ready():
 	hide()
 
 func _process(delta):
-	if Input.is_action_just_pressed("ui_cancel") and Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
+	if Input.is_action_just_pressed("ui_cancel") or close.is_pressed() == true == true: if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		hide()
 	elif Input.is_action_just_pressed("ui_cancel") and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		show()
 	
+	if reset.is_pressed() == true:
+		get_tree().change_scene("res://Scenes/"+str("Debug World")+".tscn")
+		
 	if exit.is_pressed() == true:
 		get_tree().quit()
+		
 		
 	playerconfig.gravity = GSlide.value
 	GLab.set_text(str(playerconfig.gravity))
@@ -47,5 +53,3 @@ func _process(delta):
 	
 #func _process(delta):
 #	print(Player.speed)
-
-

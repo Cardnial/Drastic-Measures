@@ -10,6 +10,7 @@ onready var ff3k = $fallfinder3000
 onready var playerconfig = get_node('../playerconfig')
 
 onready var jumpscout = 0
+onready var speedmulti = 1
 
 # Witchcraft
 var velocity = Vector3()
@@ -54,11 +55,14 @@ func _physics_process(delta):
 	
 	var head_basis = head.get_global_transform().basis
 	
-	#if ff3k.is_colliding() == true and velocity.y < -9.99:
+	if ff3k.is_colliding() == true: # and velocity.y < -9.99:
+		jumpscout = 0
+		velocity.y = 1
 	#	playerconfig.health -= 1
 	
-	if is_on_floor():
-		jumpscout = 0
+	velocity = move_and_slide(velocity, Vector3.UP)
+	
+	#collision.collider.move_and_collide(velocity * delta)
 	
 	var direction = Vector3()
 	if Input.is_action_pressed("move_forward"):
@@ -74,15 +78,24 @@ func _physics_process(delta):
 	# This has something to do with movement i swear
 	direction = direction.normalized()
 	
-	velocity = velocity.linear_interpolate(direction * playerconfig.speed, playerconfig.acceleration * delta)
+	velocity = velocity.linear_interpolate(direction * (playerconfig.speed * speedmulti), playerconfig.acceleration * delta)
 	velocity.y -= playerconfig.gravity
 	
-	
+	if Input.is_action_pressed("sprint") and speedmulti < 3:
+		speedmulti += 1
+		jumpscout += 1
+		
+	elif speedmulti > 1:
+		speedmulti -= 1
+		
+		
 	if Input.is_action_just_pressed("jump") and jumpscout < 2:
 		velocity.y += playerconfig.jump_power
 		jumpscout += 1
 		
 	
-	velocity = move_and_slide(velocity, Vector3.UP)
+		
+	
+	
 	
 	
