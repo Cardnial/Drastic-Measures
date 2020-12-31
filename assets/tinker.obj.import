@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/tinker.obj-7f426d8b570818f85ab2856db19eaefe.mesh"
+
+[deps]
+
+files=[ "res://.import/tinker.obj-7f426d8b570818f85ab2856db19eaefe.mesh" ]
+
+source_file="res://assets/tinker.obj"
+dest_files=[ "res://.import/tinker.obj-7f426d8b570818f85ab2856db19eaefe.mesh", "res://.import/tinker.obj-7f426d8b570818f85ab2856db19eaefe.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

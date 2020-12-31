@@ -1,0 +1,281 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ScenesAndScripts/GUI/DebugMenu/DebugMenu.gd" type="Script" id=1]
+
+
+[node name="DebugMenu" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -120.0
+margin_top = -80.0
+margin_right = 120.0
+margin_bottom = 80.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -120.0
+margin_top = -80.0
+margin_right = 140.0
+margin_bottom = 93.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Return" type="Label" parent="Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -37.5
+margin_top = 7.24455
+margin_right = 37.5
+margin_bottom = 21.2446
+text = "Return (Esc)"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gravity" type="Label" parent="Panel"]
+margin_left = 1.63605
+margin_top = 26.7353
+margin_right = 76.636
+margin_bottom = 40.7353
+rect_pivot_offset = Vector2( 37.5, 7 )
+text = "Gravity"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GravSlider" type="HSlider" parent="Panel/Gravity"]
+margin_left = 67.253
+margin_top = -1.0
+margin_right = 210.0
+margin_bottom = 15.0
+min_value = 0.5
+max_value = 20.0
+step = 0.5
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gravlab" type="Label" parent="Panel/Gravity"]
+margin_left = 215.0
+margin_top = 1.0
+margin_right = 231.0
+margin_bottom = 15.0
+rect_pivot_offset = Vector2( 8, 7 )
+text = "99"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Speed" type="Label" parent="Panel"]
+margin_left = 1.28247
+margin_top = 51.1305
+margin_right = 76.2825
+margin_bottom = 65.1305
+rect_pivot_offset = Vector2( 37.5, 7 )
+text = "Speed"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpedSlider" type="HSlider" parent="Panel/Speed"]
+margin_left = 67.253
+margin_top = -1.0
+margin_right = 210.0
+margin_bottom = 15.0
+min_value = 5.0
+max_value = 20.0
+value = 10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spedlab" type="Label" parent="Panel/Speed"]
+margin_left = 215.354
+margin_top = 1.0
+margin_right = 231.354
+margin_bottom = 14.7377
+rect_pivot_offset = Vector2( 8, 7 )
+text = "99"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Acceleration" type="Label" parent="Panel"]
+margin_left = 1.28247
+margin_top = 73.7579
+margin_right = 76.2825
+margin_bottom = 87.7579
+rect_pivot_offset = Vector2( 37.5, 7 )
+text = "Celery"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AcceSlider" type="HSlider" parent="Panel/Acceleration"]
+margin_left = 67.253
+margin_top = -1.0
+margin_right = 210.0
+margin_bottom = 15.0
+min_value = 2.0
+max_value = 20.0
+step = 2.0
+value = 6.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Accelab" type="Label" parent="Panel/Acceleration"]
+margin_left = 215.354
+margin_top = 1.0
+margin_right = 231.354
+margin_bottom = -32.0226
+rect_pivot_offset = Vector2( 8, 7 )
+text = "99"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Jump" type="Label" parent="Panel"]
+margin_left = 1.28247
+margin_top = 97.0925
+margin_right = 76.2825
+margin_bottom = 111.092
+rect_pivot_offset = Vector2( 37.5, 7 )
+text = "Jump"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JumpSlider" type="HSlider" parent="Panel/Jump"]
+margin_left = 67.253
+margin_top = -1.0
+margin_right = 210.0
+margin_bottom = 15.0
+max_value = 50.0
+value = 30.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Jumplab" type="Label" parent="Panel/Jump"]
+margin_left = 215.354
+margin_top = 1.0
+margin_right = 231.354
+margin_bottom = -30.962
+rect_pivot_offset = Vector2( 8, 7 )
+text = "99"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sensitivity" type="Label" parent="Panel"]
+margin_left = 1.28247
+margin_top = 126.228
+margin_right = 76.2825
+margin_bottom = 140.228
+rect_pivot_offset = Vector2( 37.5, 7 )
+text = "Sens"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SensSlider" type="HSlider" parent="Panel/Sensitivity"]
+margin_left = 67.0
+margin_top = -1.0
+margin_right = 117.0
+margin_bottom = 15.0
+max_value = 1.0
+step = 0.1
+value = 0.3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Senslab" type="Label" parent="Panel/Sensitivity"]
+margin_left = 118.649
+margin_top = 1.0
+margin_right = 138.649
+margin_bottom = 15.0
+rect_pivot_offset = Vector2( 8, 7 )
+text = "9.9"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="Button" parent="Panel"]
+anchor_left = 0.75
+anchor_top = 0.837
+anchor_right = 0.75
+anchor_bottom = 0.837
+margin_left = -28.5
+margin_top = 0.402313
+margin_right = 48.5
+margin_bottom = 20.4023
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Close" type="Button" parent="Panel"]
+anchor_left = 0.75
+anchor_top = 0.837
+anchor_right = 0.75
+anchor_bottom = 0.837
+margin_left = 40.7443
+margin_top = -140.627
+margin_right = 60.7443
+margin_bottom = -120.627
+grow_horizontal = 2
+grow_vertical = 2
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reset" type="Button" parent="Panel"]
+anchor_left = 0.75
+anchor_top = 0.837
+anchor_right = 0.75
+anchor_bottom = 0.837
+margin_left = -28.5
+margin_top = -24.8394
+margin_right = 48.5
+margin_bottom = -4.83937
+grow_horizontal = 2
+grow_vertical = 2
+text = "Reset"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Panel/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="Panel/Close" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="Panel/Reset" to="." method="_on_Reset_pressed"]

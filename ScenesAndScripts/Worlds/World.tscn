@@ -1,0 +1,140 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/images/stanley-tape-measures-33-716y-64_1000.jpg" type="Texture" id=2]
+[ext_resource path="res://assets/images/dingus.png" type="Texture" id=3]
+[ext_resource path="res://textures/tiles/Tiles036_2K_Roughness.jpg" type="Texture" id=4]
+[ext_resource path="res://textures/tiles/Tiles036_2K_Normal.jpg" type="Texture" id=5]
+[ext_resource path="res://Scenes/playerconfig.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/DebugMenu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Wall.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/StaticCube.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Ground.tscn" type="PackedScene" id=11]
+
+[sub_resource type="SpatialMaterial" id=1]
+roughness_texture = ExtResource( 4 )
+normal_enabled = true
+normal_scale = -3.36
+normal_texture = ExtResource( 5 )
+uv1_triplanar = true
+
+[sub_resource type="CubeMesh" id=2]
+material = SubResource( 1 )
+
+[sub_resource type="ConcavePolygonShape" id=3]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="BoxShape" id=4]
+
+[sub_resource type="CubeMesh" id=5]
+
+[sub_resource type="ConcavePolygonShape" id=6]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[node name="World" type="Spatial"]
+
+[node name="DebugMenu" parent="." instance=ExtResource( 7 )]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -0.00807571, -0.621813, 0.0595093 )
+
+[node name="Ground" parent="." instance=ExtResource( 11 )]
+
+[node name="Wall" parent="." instance=ExtResource( 9 )]
+
+[node name="Wall5" type="MeshInstance" parent="."]
+transform = Transform( 10, 0, 0, 0, -2.18557e-08, -2.5, 0, 0.5, -1.09278e-07, 15.0646, 0, -16.4081 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Wall5"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall5/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="Wall3" type="MeshInstance" parent="."]
+transform = Transform( -1.62921e-06, -0.5, 4.07302e-07, 0, -8.14603e-08, -2.5, 10, -8.14603e-08, 6.63579e-14, 9.88998, 0, 0.0389891 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Wall3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall3/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="Wall4" type="MeshInstance" parent="."]
+transform = Transform( -1.62921e-06, -0.5, 4.07302e-07, 0, -8.14603e-08, -2.5, 10, -8.14603e-08, 6.63579e-14, -10.1814, 0, 0.0389891 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Wall4"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall4/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="Wall2" type="MeshInstance" parent="."]
+transform = Transform( 10, 0, 0, 0, -2.18557e-08, -2.5, 0, 0.5, -1.09278e-07, 0, 0, 10 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Wall2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall2/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="Dingus" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15.5397 )
+flip_h = true
+texture = ExtResource( 3 )
+
+[node name="DoomMeasure" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.28172, 0.960464, -15.1686 )
+texture = ExtResource( 2 )
+
+[node name="PhysicsCube" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.68305, 0.432344, -5.54484 )
+continuous_cd = true
+contact_monitor = true
+can_sleep = false
+linear_damp = 1.0
+angular_damp = 1.0
+
+[node name="CollisionShape" type="CollisionShape" parent="PhysicsCube"]
+transform = Transform( 1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="Mesh" type="MeshInstance" parent="PhysicsCube/CollisionShape"]
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="StaticCube" parent="." instance=ExtResource( 10 )]
+
+[node name="StaticCube2" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.15089, 0.984485, 6.8572 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticCube2"]
+shape = SubResource( 6 )
+
+[node name="Mesh" type="MeshInstance" parent="StaticCube2/CollisionShape"]
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="StaticCube3" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.03126, -1.97419, 3.3595 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticCube3"]
+shape = SubResource( 6 )
+
+[node name="Mesh" type="MeshInstance" parent="StaticCube3/CollisionShape"]
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 20, -20 )
+light_energy = 0.8
+
+[node name="playerconfig" parent="." instance=ExtResource( 6 )]
+
+[node name="HUD" parent="." instance=ExtResource( 8 )]
+margin_right = 181.0

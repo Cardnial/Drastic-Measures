@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Materials/Asphalt.tres" type="Material" id=1]
+[ext_resource path="res://Materials/grass.tres" type="Material" id=2]
+[ext_resource path="res://ScenesAndScripts/Prefabs/House.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 15, 0.25, 1800 )
+
+[sub_resource type="ConcavePolygonShape" id=5]
+data = PoolVector3Array( -7.5, 0.125, 900, 7.5, 0.125, 900, -7.5, -0.125, 900, 7.5, 0.125, 900, 7.5, -0.125, 900, -7.5, -0.125, 900, 7.5, 0.125, -900, -7.5, 0.125, -900, 7.5, -0.125, -900, -7.5, 0.125, -900, -7.5, -0.125, -900, 7.5, -0.125, -900, 7.5, 0.125, 900, 7.5, 0.125, -900, 7.5, -0.125, 900, 7.5, 0.125, -900, 7.5, -0.125, -900, 7.5, -0.125, 900, -7.5, 0.125, -900, -7.5, 0.125, 900, -7.5, -0.125, -900, -7.5, 0.125, 900, -7.5, -0.125, 900, -7.5, -0.125, -900, 7.5, 0.125, 900, -7.5, 0.125, 900, 7.5, 0.125, -900, -7.5, 0.125, 900, -7.5, 0.125, -900, 7.5, 0.125, -900, -7.5, -0.125, 900, 7.5, -0.125, 900, -7.5, -0.125, -900, 7.5, -0.125, 900, 7.5, -0.125, -900, -7.5, -0.125, -900 )
+
+[sub_resource type="CubeMesh" id=3]
+size = Vector3( 1800, 0.25, 1800 )
+
+[sub_resource type="ConcavePolygonShape" id=4]
+data = PoolVector3Array( -900, 0.125, 900, 900, 0.125, 900, -900, -0.125, 900, 900, 0.125, 900, 900, -0.125, 900, -900, -0.125, 900, 900, 0.125, -900, -900, 0.125, -900, 900, -0.125, -900, -900, 0.125, -900, -900, -0.125, -900, 900, -0.125, -900, 900, 0.125, 900, 900, 0.125, -900, 900, -0.125, 900, 900, 0.125, -900, 900, -0.125, -900, 900, -0.125, 900, -900, 0.125, -900, -900, 0.125, 900, -900, -0.125, -900, -900, 0.125, 900, -900, -0.125, 900, -900, -0.125, -900, 900, 0.125, 900, -900, 0.125, 900, 900, 0.125, -900, -900, 0.125, 900, -900, 0.125, -900, 900, 0.125, -900, -900, -0.125, 900, 900, -0.125, 900, -900, -0.125, -900, 900, -0.125, 900, 900, -0.125, -900, -900, -0.125, -900 )
+
+[node name="Demo" type="Node"]
+
+[node name="Road" type="MeshInstance" parent="."]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -51.8916, 0.15, -45 )
+material_override = ExtResource( 1 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Road"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Road/StaticBody"]
+shape = SubResource( 5 )
+
+[node name="Grass" type="MeshInstance" parent="."]
+material_override = ExtResource( 2 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Grass"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Grass/StaticBody"]
+shape = SubResource( 4 )
+
+[node name="House" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -71.0587, 0.1, 0 )
+visible = false

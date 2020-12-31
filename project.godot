@@ -17,13 +17,13 @@ _global_script_class_icons={
 
 config/name="Drastic Measures"
 config/description="pain pain pain pain pain pain pain pain pain pain pain pain "
-run/main_scene="res://Scenes/Debug World.tscn"
+run/main_scene="res://ScenesAndScripts/Game.tscn"
 config/icon="res://icon.png"
 config/windows_native_icon="res://icon.ico"
 
 [autoload]
 
-playerconfig="*res://playerconfig.gd"
+playerconfig="*res://ScenesAndScripts/Player/playerconfig.tscn"
 
 [display]
 
@@ -84,6 +84,7 @@ weaponchange={
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
+quality/driver/fallback_to_gles2=true
+threads/thread_model=2
 environment/default_clear_color=Color( 0.301961, 0.301961, 0.301961, 1 )
 environment/default_environment="res://newnewdefault.tres"
